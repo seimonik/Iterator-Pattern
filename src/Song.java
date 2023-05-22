@@ -12,7 +12,9 @@ public class Song {
     public String getMusician() {
         return musician;
     }
-
+    public String getName() {
+        return Name;
+    }
     public MusicGenreEnum getTYPE() {
         return TYPE;
     }
@@ -20,5 +22,16 @@ public class Song {
     @Override
     public String toString(){
         return this.Name+" - "+this.musician +" ("+this.TYPE+")";
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) { // проверка на идентичность
+            return true;
+        }
+        if (!(obj instanceof Song)) { // проверка типа объекта
+            return false;
+        }
+        Song other = (Song) obj; // приведение объекта к типу Song
+        return this.Name.equals(other.Name) && this.musician == other.musician && this.TYPE == other.TYPE;
     }
 }
